@@ -68,7 +68,10 @@ void searchst()
     cout<<"Enter the Student ID to be searched : ";
     cin>>Id;
     if(Id<=0)
+    {
     cout<<"Enter the correct student ID ";
+    return;
+    }
     vector<student>::iterator it;
     for(it=vec.begin();it!=vec.end();it++)
     {
@@ -90,7 +93,10 @@ void delst()
     cout<<"Enter the Student ID to be searched : ";
     cin>>Id;
     if(Id<=0)
+    {
     cout<<"Enter the correct student ID ";
+    return;
+    }
     vector<student>::iterator it;
     for(it=vec.begin();it!=vec.end();it++)
     {
