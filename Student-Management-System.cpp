@@ -67,10 +67,10 @@ void searchst()
 {   int Id,flag=0;
     cout<<"Enter the Student ID to be searched : ";
     cin>>Id;
-    if(Id<=0)
+    while(Id<=0)
     {
-    cout<<"Enter the correct student ID ";
-    return;
+    cout<<"Enter the correct student ID : ";
+    cin>>Id;
     }
     vector<student>::iterator it;
     for(it=vec.begin();it!=vec.end();it++)
@@ -92,10 +92,10 @@ void delst()
 {   int Id,flag=0;
     cout<<"Enter the Student ID to be searched : ";
     cin>>Id;
-    if(Id<=0)
+    while(Id<=0)
     {
     cout<<"Enter the correct student ID ";
-    return;
+    cin>>Id;
     }
     vector<student>::iterator it;
     for(it=vec.begin();it!=vec.end();it++)
