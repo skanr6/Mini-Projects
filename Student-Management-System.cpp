@@ -23,6 +23,16 @@ void load_data()
     fin.close();
 }
 
+//updatefile
+void upfile()
+{
+    ofstream fout("students.txt");
+    vector<student>::iterator it;
+    for(it=vec.begin();it!=vec.end();it++)
+    fout<<(*it).id<<" "<<(*it).name<<" "<<(*it).marks<<endl;
+    fout.close();
+}
+
 //addition
 void addst()
 {
@@ -37,7 +47,7 @@ void addst()
     ofstream fout("students.txt",ios::app);
     fout<<s.id<<" "<<s.name<<" "<<s.marks<<endl;
     fout.close();
-    cout<<" Student added successfully !";
+    cout<<"Student added successfully !";
     cout<<"\n"<<"\n";
 }
 
@@ -49,11 +59,12 @@ void dispst()
     {
         cout<<(*it).id<<" "<<(*it).name<<" "<<(*it).marks<<endl;
     }
+    
 }
 
 //searching
 void searchst()
-{   int Id;
+{   int Id,flag=0;
     cout<<"Enter the Student ID to be searched : ";
     cin>>Id;
     if(Id<=0)
@@ -63,20 +74,19 @@ void searchst()
     {
        if (Id==(*it).id)
        {
+        flag=1;
         cout<<(*it).id<<endl<<(*it).name<<endl<<(*it).marks<<endl;
         break;
        }
-       else
-       {
-       cout<<"Student not found ";
-       }
+       
     }
+    if(flag==0) cout<<" Student not found ";
     
 }
 
 //deletion
 void delst()
-{   int Id;
+{   int Id,flag=0;
     cout<<"Enter the Student ID to be searched : ";
     cin>>Id;
     if(Id<=0)
@@ -87,15 +97,14 @@ void delst()
        if (Id==(*it).id)
        { 
          vec.erase(it);
+         flag=1;
          cout<<"Student data deleted successfully ";
          break;
        }
-       else 
-       {
-       cout<<"Student not found ";
-       }
     }
-    
+    if(flag==0) cout<<" Student not found \n ";
+    upfile();
+    cout<<endl;
 }
 
 int main()
@@ -103,9 +112,10 @@ int main()
     int n;
     load_data();
     cout<<endl;
-    cout<<"===== STUDENT MANAGEMENT SYSTEM ====="<<endl<<endl;;
+    cout<<"===== STUDENT MANAGEMENT SYSTEM ====="<<endl;;
     while(true)
     {
+    cout<<endl;
     cout<<" 1. Add Student \n 2. Display Students \n 3. Search Student \n 4. Delete Student \n 5. Exit "<<endl<<endl;
     cout<<"Enter your choice by typing the number : ";
     cin>>n;
