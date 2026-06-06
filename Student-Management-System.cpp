@@ -43,7 +43,7 @@ void addst()
     cin>>s.name;    
     cout<<"Enter the marks of the student : ";
     cin>>s.marks;
-    vec.push_back({s.id,s.name,s.marks});
+    vec.push_back(s);
     ofstream fout("students.txt",ios::app);
     fout<<s.id<<" "<<s.name<<" "<<s.marks<<endl;
     fout.close();
