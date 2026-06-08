@@ -78,7 +78,7 @@ void searchst()
        if (Id==(*it).id)
        {
         flag=1;
-        cout<<(*it).id<<endl<<(*it).name<<endl<<(*it).marks<<endl;
+        cout<<"ID : "<<(*it).id<<endl<<"Name : "<<(*it).name<<endl<<"Marks : "<<(*it).marks<<endl;
         break;
        }
        
